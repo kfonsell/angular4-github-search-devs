@@ -7,8 +7,8 @@ describe('angular4-search-devs App', () => {
     page = new Angular4SearchDevsPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display message saying find developers', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Find developers');
   });
 });
