@@ -5,11 +5,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12 col-md-offset-3">
+    <div class="col-md-12 col-md-offset-2">
       <div class="form-inline">
-        <input placeholder="Location e.g. City" class="form-control input-lg input" #place (keyup.enter)="search(place.value, language.value); place.value=''; language.value='';" />
-        <input placeholder="Language e.g. Javascript" class="form-control input-lg input" #language (keyup.enter)="search(place.value, language.value); place.value=''; language.value='';" />
-        <button class="btn btn-primary btn-lg" (click)="search(place.value, language.value); place.value=''; language.value='';">Search</button>
+        <input placeholder="Name" class="form-control input-lg input" #name (keyup.enter)="search(name.value, place.value, language.value); name.value=''; place.value=''; language.value='';" />
+        <input placeholder="Location e.g. City" class="form-control input-lg input" #place (keyup.enter)="search(name.value, place.value, language.value); name.value=''; place.value=''; language.value='';" />
+        <input placeholder="Language e.g. Javascript" class="form-control input-lg input" #language (keyup.enter)="search(name.value, place.value, language.value); name.value=''; place.value=''; language.value='';" />
+        <button class="btn btn-primary btn-lg" (click)="search(name.value, place.value, language.value); name.value=''; place.value=''; language.value='';">Search</button>
       </div>
     </div>
   </div>

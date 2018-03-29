@@ -1,15 +1,18 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject } from "@angular/core/testing";
 
-import { SearchUsersService } from './search-users.service';
+import { SearchUsersService } from "./search-users.service";
 
-describe('SearchUsersService', () => {
+describe("SearchUsersService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [SearchUsersService]
     });
   });
 
-  it('should ...', inject([SearchUsersService], (service: SearchUsersService) => {
-    expect(service).toBeTruthy();
-  }));
+  it(
+    "should ...",
+    inject([SearchUsersService], (service: SearchUsersService) => {
+      expect(service).toBeTruthy();
+    })
+  );
 });

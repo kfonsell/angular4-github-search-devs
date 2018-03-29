@@ -1,19 +1,13 @@
-import {
-  Component, OnInit, Input
-}
-from '@angular/core';
-import {
-  SearchUsersService
-}
-from '../search-users.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { SearchUsersService } from "../search-users.service";
 
-@
-Component({
-  selector: 'app-search-users',
-  templateUrl: './search-users.component.html',
-  styleUrls: ['./search-users.component.css']
+@Component({
+  selector: "app-search-users",
+  templateUrl: "./search-users.component.html",
+  styleUrls: ["./search-users.component.css"]
 })
 export class SearchUsersComponent implements OnInit {
+  name: string;
   place: string;
   language: string;
 
@@ -25,22 +19,25 @@ export class SearchUsersComponent implements OnInit {
   constructor(private searchService: SearchUsersService) {}
   ngOnInit() {}
 
-  search(place: string, language: string) {
+  search(name: string, place: string, language: string) {
     this.selected = false;
     this.error_text = "";
-    if (place || language) {
+    if (name || place || language) {
+      this.name = name;
       this.place = place;
       this.language = language;
-      this.searchService.getUsersByPlaceAndLanguage(place, language).subscribe(
-        users => {
-          this.results = users;
-        },
-        error => {
-          this.results = [];
-          this.error_text = "Sorry! No users found. Try again.";
-          console.error(error);
-        }
-      )
+      this.searchService
+        .getUsersByNameAndPlaceAndLanguage(name, place, language)
+        .subscribe(
+          users => {
+            this.results = users;
+          },
+          error => {
+            this.results = [];
+            this.error_text = "Sorry! No users found. Try again.";
+            console.error(error);
+          }
+        );
     }
   }
 
@@ -54,6 +51,6 @@ export class SearchUsersComponent implements OnInit {
         this.selected = false;
         console.error(error);
       }
-    )
+    );
   }
 }
